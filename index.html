@@ -7,14 +7,43 @@
   <meta name="description"
         content="Personal website of Mattia Lupi, researcher in Political Science and Economic History with a focus on the history of central banking.">
   <style>
-    .profile-photo {
-  width: 160px;
-  height: 160px;
+    .hero-layout {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero-image {
+  flex: 0 0 180px;
+}
+
+.hero-content {
+  flex: 1;
+}
+
+.profile-photo {
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   border-radius: 50%;
   display: block;
-  margin: 0 0 1rem 0;
   border: 3px solid #e5e5e5;
+}
+
+@media (max-width: 700px) {
+  .hero-layout {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-image {
+    flex: none;
+  }
+
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+  }
 }
     :root {
       --bg: #f9f9f9;
@@ -115,13 +144,31 @@
     }
 
     .hero {
-      background: #fff;
-      border-radius: 0.5rem;
-      padding: 1.75rem 1.5rem;
-      margin-top: 1.5rem;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-    }
+      <section class="hero" id="home">
+  <div class="hero-layout">
+    <div class="hero-image">
+      <img src="mattia-lupi.jpg" alt="Portrait of Mattia Lupi" class="profile-photo">
+    </div>
 
+    <div class="hero-content">
+      <div class="hero-name">Mattia Lupi</div>
+      <div class="hero-subtitle">Political Science &amp; Economic History</div>
+      <p class="hero-text">
+        I work in Political Science and Economic History, with a focus on the history of central banking.
+      </p>
+      <p class="hero-text">
+        My research is in Political Science and Economic History, with a particular focus on the history of central
+        banking. More broadly, I am interested in central banks as political actors, monetary regimes,
+        international economic institutions, and the history of economic thought.
+      </p>
+      <div class="hero-buttons">
+        <a href="#research" class="btn btn-primary">Research</a>
+        <a href="#cv" class="btn">CV</a>
+        <a href="#contact" class="btn">Contact</a>
+      </div>
+    </div>
+  </div>
+</section>
     .hero-name {
       font-size: 1.9rem;
       font-weight: 600;
