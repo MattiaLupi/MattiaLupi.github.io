@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mattia Lupi – Political Science & Economic History</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+        content="Personal website of Mattia Lupi, researcher in Political Science and Economic History with a focus on the history of central banking.">
+  <style>
+    :root {
+      --bg: #f9f9f9;
+      --text: #222;
+      --muted: #555;
+      --accent: #004b6b;
+      --accent-light: #e0f0f6;
+      --border: #ddd;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      background: #fff;
+    }
+
+    .nav {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-title {
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 0.5rem;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      margin-top: 1rem;
+    }
+
+    p {
+      margin: 0.5rem 0;
+      color: var(--muted);
+    }
+
+    .hero {
+      background: #fff;
+      border-radius: 0.5rem;
+      padding: 1.75rem 1.5rem;
+      margin-top: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .hero-name {
+      font-size: 1.9rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-text {
+      margin-bottom: 1rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      background: #fff;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn:hover {
+      text-decoration: none;
+      background: var(--accent-light);
+    }
+
+    .btn-primary:hover {
+      background: #00354f;
+      color: #fff;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    ul {
+      padding-left: 1.1rem;
+      margin: 0.5rem 0;
+    }
+
+    li {
+      margin-bottom: 0.25rem;
+    }
+
+    .pub-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .pub-item {
+      margin-bottom: 0.75rem;
+    }
+
+    .pub-title {
+      font-weight: 500;
+    }
+
+    .small {
+      font-size: 0.9rem;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .contact-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .contact-list li {
+      margin-bottom: 0.35rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1rem 1.25rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+      background: #fff;
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+      }
+      .hero {
+        padding: 1.5rem 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="nav-title">Mattia Lupi</div>
+      <nav class="nav-links">
+        <a href="#research">Research</a>
+        <a href="#book-project">Book project</a>
+        <a href="#publications">Publications</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero / Home -->
+    <section class="hero" id="home">
+      <div class="hero-name">Mattia Lupi</div>
+      <div class="hero-subtitle">Political Science &amp; Economic History</div>
+      <p class="hero-text">
+        I work in Political Science and Economic History, with a focus on the history of central banking.
+      </p>
+      <p class="hero-text">
+        My research is in Political Science and Economic History, with a particular focus on the history of central
+        banking. More broadly, I am interested in central banks as political actors, monetary regimes,
+        international economic institutions, and the history of economic thought.
+      </p>
+      <div class="hero-buttons">
+        <a href="#research" class="btn btn-primary">Research</a>
+        <a href="#cv" class="btn">CV</a>
+        <a href="#contact" class="btn">Contact</a>
+      </div>
+    </section>
+
+    <!-- Research -->
+    <section id="research">
+      <h2 class="section-title">Research</h2>
+      <p>
+        I work on Political Science and Economic History, especially on the history of central banking. More broadly,
+        my research looks at central banks as political actors, changes in monetary regimes, the transformation
+        of international economic institutions, and the role of economic ideas in public policy.
+      </p>
+      <h3>Research interests</h3>
+      <ul>
+        <li>Central banks as political actors</li>
+        <li>History of central banking</li>
+        <li>Monetary regimes and international economic institutions</li>
+        <li>History of economic ideas and economic governance</li>
+      </ul>
+    </section>
+
+    <!-- Book Project -->
+    <section id="book-project">
+      <h2 class="section-title">Book project</h2>
+      <p>
+        My current book project,
+        <em>Filling the Void: The Bank of Italy and the Politics of Central Banking in an Age of Crisis, 1963–1981</em>,
+        examines the political role of the Bank of Italy during the turbulent decades that reshaped the Italian economy
+        and state. It explores how the central bank came to act beyond a narrow monetary function, intervening in
+        moments of institutional weakness and helping to redefine the boundaries of central banking itself.
+      </p>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+      <h2 class="section-title">Publications</h2>
+      <p>
+        I publish on the history and political economy of central banking, credit policy, and economic governance,
+        and I also write shorter pieces for a wider policy audience. A selection of publications is listed below.
+      </p>
+
+      <h3>Academic publications</h3>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <div class="pub-title">
+            How Credit Policy Ends: Central Bankers and the Rise and Fall of Credit Controls in Italy, 1973–1983
+          </div>
+          <div class="small muted">
+            A study of how Italian central bankers managed the transition away from postwar credit controls and what
+            this tells us about the changing role of central banks in credit policy.
+          </div>
+        </li>
+        <li class="pub-item">
+          <div class="pub-title">
+            A European Credit Council? Lessons from the History of Italian Central Banking after World War II
+          </div>
+          <div class="small muted">
+            This article revisits postwar Italian experience with credit policy to discuss proposals for democratising
+            the European Central Bank's role in credit allocation.
+          </div>
+        </li>
+      </ul>
+
+      <h3>Policy writing and commentary</h3>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <div class="pub-title">
+            Il commercio internazionale tra protezionismo e liberalizzazione: la lezione di Guido Carli
+          </div>
+          <div class="small muted">
+            Policy brief, Luiss School of Government.
+          </div>
+        </li>
+        <li class="pub-item">
+          <div class="pub-title">
+            Trump vs. the Fed: una storia tra le storie
+          </div>
+          <div class="small muted">
+            Policy brief, Luiss School of Government.
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- CV -->
+    <section id="cv">
+      <h2 class="section-title">CV</h2>
+      <p>
+        A full CV is available as a PDF. Please see the link below.
+      </p>
+      <p>
+        <!-- Sostituisci # con il link reale al tuo PDF quando lo carichi -->
+        <a href="#" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a>
+      </p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p>
+        For academic and professional enquiries, you can reach me at:
+      </p>
+      <ul class="contact-list">
+        <li>Email: <span class="small">[mattia.lupi@sciencespo.fr]</span></li>
+        <li>Google Scholar:
+          <a href="https://scholar.google.com/citations?hl=en&user=uKMc2agAAAAJ"
+             target="_blank" rel="noopener noreferrer">
+            Google Scholar profile
+          </a>
+        </li>
+        <li>LinkedIn:
+          <!-- Sostituisci # con il link reale -->
+          <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    &copy; <!--YEAR--> Mattia Lupi. All rights reserved.
+  </footer>
+</body>
+</html>
