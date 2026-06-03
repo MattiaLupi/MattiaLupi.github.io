@@ -1,69 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Mattia Lupi – Political Science & Economic History</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-        content="Personal website of Mattia Lupi, researcher in Political Science and Economic History with a focus on the history of central banking.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mattia Lupi</title>
+  <meta name="description" content="Mattia Lupi — Researcher in Political Science and Economic History." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    .hero-layout {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.hero-image {
-  flex: 0 0 180px;
-}
-
-.hero-content {
-  flex: 1;
-}
-
-.profile-photo {
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 50%;
-  display: block;
-  border: 3px solid #e5e5e5;
-}
-
-@media (max-width: 700px) {
-  .hero-layout {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .hero-image {
-    flex: none;
-  }
-
-  .profile-photo {
-    width: 150px;
-    height: 150px;
-  }
-}
     :root {
-      --bg: #f9f9f9;
-      --text: #222;
-      --muted: #555;
-      --accent: #004b6b;
-      --accent-light: #e0f0f6;
-      --border: #ddd;
+      --bg: #f6f3ee;
+      --surface: #fbfaf7;
+      --surface-2: #f0ece6;
+      --text: #1f1d1a;
+      --muted: #6c685f;
+      --line: #d8d1c8;
+      --accent: #0f5c63;
+      --accent-dark: #0a4449;
+      --white: #ffffff;
+      --shadow: 0 12px 30px rgba(26, 20, 13, 0.08);
+      --radius: 18px;
+      --radius-lg: 28px;
+      --max: 1120px;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
       color: var(--text);
-      background-color: var(--bg);
+      line-height: 1.65;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     a {
@@ -75,374 +57,620 @@
       text-decoration: underline;
     }
 
-    header {
-      border-bottom: 1px solid var(--border);
-      background: #fff;
+    .container {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      background: rgba(246, 243, 238, 0.9);
+      border-bottom: 1px solid rgba(216, 209, 200, 0.8);
     }
 
     .nav {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 1rem 1.25rem;
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
     }
 
-    .nav-title {
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      color: var(--text);
       font-weight: 600;
-      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--text);
+      color: var(--bg);
+      font-size: 0.96rem;
+      font-weight: 700;
     }
 
     .nav-links {
       display: flex;
+      flex-wrap: wrap;
       gap: 1rem;
-      font-size: 0.95rem;
+      font-size: 0.94rem;
     }
 
     .nav-links a {
       color: var(--muted);
     }
 
-    .nav-links a:hover {
-      color: var(--accent);
+    .hero {
+      padding: 5rem 0 3rem;
     }
 
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 1.5rem 1.25rem 3rem;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 3rem;
+      align-items: center;
     }
 
-    section {
-      margin-bottom: 2.5rem;
+    .hero-photo-wrap {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      box-shadow: var(--shadow);
     }
 
-    h1, h2, h3 {
-      margin: 0 0 0.5rem;
-      line-height: 1.2;
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 22px;
+      background: var(--surface-2);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
     }
 
     h1 {
-      font-size: 1.9rem;
+      margin: 0 0 0.8rem;
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      line-height: 0.96;
+      letter-spacing: -0.03em;
+      font-weight: 400;
     }
 
-    h2 {
-      font-size: 1.4rem;
-      margin-top: 1.5rem;
-    }
-
-    h3 {
-      font-size: 1.1rem;
-      margin-top: 1rem;
-    }
-
-    p {
-      margin: 0.5rem 0;
+    .subtitle {
+      margin: 0 0 1.2rem;
+      font-size: 1.15rem;
       color: var(--muted);
-    }
-
-    .hero {
-      <section class="hero" id="home">
-  <div class="hero-layout">
-    <div class="hero-image">
-      <img src="mattia-lupi.jpg" alt="Portrait of Mattia Lupi" class="profile-photo">
-    </div>
-
-    <div class="hero-content">
-      <div class="hero-name">Mattia Lupi</div>
-      <div class="hero-subtitle">Political Science &amp; Economic History</div>
-      <p class="hero-text">
-        I work in Political Science and Economic History, with a focus on the history of central banking.
-      </p>
-      <p class="hero-text">
-        My research is in Political Science and Economic History, with a particular focus on the history of central
-        banking. More broadly, I am interested in central banks as political actors, monetary regimes,
-        international economic institutions, and the history of economic thought.
-      </p>
-      <div class="hero-buttons">
-        <a href="#research" class="btn btn-primary">Research</a>
-        <a href="#cv" class="btn">CV</a>
-        <a href="#contact" class="btn">Contact</a>
-      </div>
-    </div>
-  </div>
-</section>
-    .hero-name {
-      font-size: 1.9rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
       font-weight: 500;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
     }
 
-    .hero-text {
-      margin-bottom: 1rem;
+    .lead {
+      margin: 0 0 1rem;
+      font-size: 1.05rem;
+      max-width: 64ch;
+      color: #2e2a25;
     }
 
-    .hero-buttons {
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 0.75rem;
+      gap: 0.9rem;
+      margin-top: 1.8rem;
     }
 
     .btn {
-      display: inline-block;
-      padding: 0.4rem 0.9rem;
-      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.9rem 1.15rem;
       border-radius: 999px;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: transparent;
+      font-weight: 600;
+      transition: 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      text-decoration: none;
     }
 
     .btn-primary {
       background: var(--accent);
-      color: #fff;
-    }
-
-    .btn:hover {
-      text-decoration: none;
-      background: var(--accent-light);
+      color: var(--white);
+      border-color: var(--accent);
     }
 
     .btn-primary:hover {
-      background: #00354f;
-      color: #fff;
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
     }
 
-    .section-title {
-      font-size: 1.4rem;
-      margin-bottom: 0.25rem;
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
     }
 
-    .section-subtitle {
+    .meta-pill {
+      padding: 0.55rem 0.8rem;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    section {
+      padding: 2rem 0 1rem;
+    }
+
+    .section-layout {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 2rem;
+      align-items: start;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-label {
+      padding-top: 0.35rem;
+      color: var(--muted);
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+
+    .section-content h2 {
+      margin: 0 0 1rem;
+      font-family: 'Instrument Serif', serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+    }
+
+    .section-content p {
+      margin: 0 0 1rem;
+      max-width: 68ch;
+      color: #302c27;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.3rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .conference-list {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .conference-item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.15rem 1.15rem 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .conference-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.45rem;
+    }
+
+    .conference-top h3 {
+      margin: 0;
+      font-size: 1.04rem;
+      line-height: 1.3;
+    }
+
+    .conference-year {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .conference-place {
+      margin: 0 0 0.45rem;
+      color: var(--accent);
       font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .conference-desc {
+      margin: 0;
       color: var(--muted);
-      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
     }
 
-    ul {
-      padding-left: 1.1rem;
-      margin: 0.5rem 0;
+    .writing-box {
+      margin-top: 1rem;
+      padding: 1.4rem;
+      background: linear-gradient(180deg, var(--surface), #f7f3ed);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
     }
 
-    li {
-      margin-bottom: 0.25rem;
+    .writing-box h3 {
+      margin: 0 0 0.6rem;
+      font-size: 1.04rem;
     }
 
-    .pub-list {
-      list-style-type: none;
-      padding-left: 0;
-    }
-
-    .pub-item {
-      margin-bottom: 0.75rem;
-    }
-
-    .pub-title {
-      font-weight: 500;
-    }
-
-    .small {
-      font-size: 0.9rem;
-    }
-
-    .muted {
+    .writing-box p,
+    .writing-box li {
       color: var(--muted);
     }
 
-    .contact-list {
-      list-style: none;
-      padding-left: 0;
+    .writing-box ul {
+      margin: 0.8rem 0 0;
+      padding-left: 1.2rem;
     }
 
-    .contact-list li {
-      margin-bottom: 0.35rem;
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 1rem 1.25rem;
-      font-size: 0.85rem;
+    .footer {
+      padding: 3rem 0 4rem;
       color: var(--muted);
-      text-align: center;
-      background: #fff;
+      font-size: 0.92rem;
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 920px) {
+      .hero-grid,
+      .section-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 3rem;
+      }
+
+      .hero-photo-wrap {
+        max-width: 360px;
+      }
+    }
+
+    @media (max-width: 700px) {
       .nav {
         flex-direction: column;
         align-items: flex-start;
+        padding: 1rem 0;
       }
-      .nav-links {
-        flex-wrap: wrap;
+
+      .grid-2 {
+        grid-template-columns: 1fr;
       }
-      .hero {
-        padding: 1.5rem 1.25rem;
+
+      .container {
+        width: min(var(--max), calc(100% - 1.25rem));
+      }
+
+      h1 {
+        font-size: clamp(2.4rem, 11vw, 4rem);
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="nav">
-      <div class="nav-title">Mattia Lupi</div>
-      <nav class="nav-links">
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-mark">ML</div>
+        <span>Mattia Lupi</span>
+      </div>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#about">About</a>
         <a href="#research">Research</a>
-        <a href="#book-project">Book project</a>
-        <a href="#publications">Publications</a>
-        <a href="#cv">CV</a>
+        <a href="#conferences">Conferences</a>
+        <a href="#writing">Writing</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <!-- Hero / Home -->
-    <section class="hero" id="home">
-  <img src="mattia-lupi.jpg" alt="Portrait of Mattia Lupi" class="profile-photo">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-photo-wrap">
+          <img src="profile.jpg" alt="Portrait of Mattia Lupi" class="hero-photo">
+        </div>
 
-  <div class="hero-name">Mattia Lupi</div>
-  <div class="hero-subtitle">Political Science &amp; Economic History</div>
-  <p class="hero-text">
-    I work in Political Science and Economic History, with a focus on the history of central banking.
-  </p>
-  <p class="hero-text">
-    My research is in Political Science and Economic History, with a particular focus on the history of central
-    banking. More broadly, I am interested in central banks as political actors, monetary regimes,
-    international economic institutions, and the history of economic thought.
-  </p>
-  <div class="hero-buttons">
-    <a href="#research" class="btn btn-primary">Research</a>
-    <a href="#cv" class="btn">CV</a>
-    <a href="#contact" class="btn">Contact</a>
-  </div>
-</section>
+        <div>
+          <div class="eyebrow">Academic-policy profile</div>
+          <h1>Mattia Lupi</h1>
+          <p class="subtitle">Researcher in Political Science and Economic History</p>
 
-    <!-- Research -->
+          <p class="lead">
+            I work at the intersection of political science, economic history, and the history of central banking,
+            with broader interests in monetary regimes, international economic institutions, and the political
+            foundations of economic governance.
+          </p>
+
+          <p class="lead">
+            My research focuses on central banks as political actors, postwar capitalism, the making of European
+            monetary integration, and the institutional history of economic policy.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#research">Research interests</a>
+            <a class="btn" href="#conferences">Selected conferences</a>
+            <a class="btn" href="#contact">Contact</a>
+          </div>
+
+          <div class="meta-row">
+            <div class="meta-pill">Political Science</div>
+            <div class="meta-pill">Economic History</div>
+            <div class="meta-pill">Central Banking</div>
+            <div class="meta-pill">Political Economy</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container section-layout">
+        <div class="section-label">About</div>
+        <div class="section-content">
+          <h2>Research on monetary institutions, political conflict, and economic governance.</h2>
+          <p>
+            This website gathers my research profile, selected conference participation, and current work in political science,
+            economic history, and the history of central banking.
+          </p>
+          <p>
+            I am particularly interested in how institutions acquire authority, how economic ideas move across policy arenas,
+            and how struggles over inflation, growth, and financial governance reshape the state.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section id="research">
-      <h2 class="section-title">Research</h2>
-      <p>
-        I work on Political Science and Economic History, especially on the history of central banking. More broadly,
-        my research looks at central banks as political actors, changes in monetary regimes, the transformation
-        of international economic institutions, and the role of economic ideas in public policy.
-      </p>
-      <h3>Research interests</h3>
-      <ul>
-        <li>Central banks as political actors</li>
-        <li>History of central banking</li>
-        <li>Monetary regimes and international economic institutions</li>
-        <li>History of economic ideas and economic governance</li>
-      </ul>
+      <div class="container section-layout">
+        <div class="section-label">Research</div>
+        <div class="section-content">
+          <h2>Research interests</h2>
+
+          <div class="grid-2">
+            <article class="card">
+              <h3>History of central banking</h3>
+              <p>The political, institutional, and intellectual history of central banks in the twentieth century.</p>
+            </article>
+
+            <article class="card">
+              <h3>Political economy of monetary regimes</h3>
+              <p>Inflation, stabilization, exchange-rate arrangements, and the politics of monetary authority.</p>
+            </article>
+
+            <article class="card">
+              <h3>Italy and postwar capitalism</h3>
+              <p>State capacity, social conflict, and institutional change in the Italian political economy after 1945.</p>
+            </article>
+
+            <article class="card">
+              <h3>Europe and international institutions</h3>
+              <p>The making of EMU, European governance, and the role of international economic organizations.</p>
+            </article>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Book Project -->
-    <section id="book-project">
-      <h2 class="section-title">Book project</h2>
-      <p>
-        My current book project,
-        <em>Filling the Void: The Bank of Italy and the Politics of Central Banking in an Age of Crisis, 1963–1981</em>,
-        examines the political role of the Bank of Italy during the turbulent decades that reshaped the Italian economy
-        and state. It explores how the central bank came to act beyond a narrow monetary function, intervening in
-        moments of institutional weakness and helping to redefine the boundaries of central banking itself.
-      </p>
+    <section id="conferences">
+      <div class="container section-layout">
+        <div class="section-label">Conferences</div>
+        <div class="section-content">
+          <h2>Selected conferences</h2>
+          <p>
+            A selection of workshops, summer schools, and conferences where I have presented research or taken part in broader discussions
+            on central banking, political economy, and European monetary integration.
+          </p>
+
+          <div class="conference-list">
+            <article class="conference-item">
+              <div class="conference-top">
+                <h3>51st Economic and Business History Society Conference</h3>
+                <div class="conference-year">2026</div>
+              </div>
+              <p class="conference-place">Tysons Corner, Virginia · 28–30 May 2026</p>
+              <p class="conference-desc">
+                Annual conference of the Economic and Business History Society on “Turning Points in Economic and Business History.”
+              </p>
+            </article>
+
+            <article class="conference-item">
+              <div class="conference-top">
+                <h3>SISEC Conference</h3>
+                <div class="conference-year">2025</div>
+              </div>
+              <p class="conference-place">University of Pavia · 29 January–1 February 2025</p>
+              <p class="conference-desc">
+                IX SISEC conference hosted by the Department of Political and Social Sciences, on “Visible and invisible in changing capitalism.”
+              </p>
+            </article>
+
+            <article class="conference-item">
+              <div class="conference-top">
+                <h3>EISA Pan-European Conference on International Relations</h3>
+                <div class="conference-year">2025</div>
+              </div>
+              <p class="conference-place">University of Bologna · 25–29 August 2025</p>
+              <p class="conference-desc">
+                18th Pan-European Conference on International Relations organized within the EISA network.
+              </p>
+            </article>
+
+            <article class="conference-item">
+              <div class="conference-top">
+                <h3>Developmental Central Banking</h3>
+                <div class="conference-year">2024</div>
+              </div>
+              <p class="conference-place">University of Évora / YSI · 5 December 2024</p>
+              <p class="conference-desc">
+                Workshop on central banks and development from the perspective of the history of economics.
+              </p>
+            </article>
+
+            <article class="conference-item">
+              <div class="conference-top">
+                <h3>Political Economy of Finance Summer School</h3>
+                <div class="conference-year">2024</div>
+              </div>
+              <p class="conference-place">Brown University · 17–21 June 2024</p>
+              <p class="conference-desc">
+                Summer school for PhD and early-career scholars working on finance, political economy, history, and related fields.
+              </p>
+            </article>
+
+            <article class="conference-item">
+              <div class="conference-top">
+                <h3>Economy &amp; Society 2023 Summer Conference</h3>
+                <div class="conference-year">2023</div>
+              </div>
+              <p class="conference-place">Northwestern University · 8–11 July 2023</p>
+              <p class="conference-desc">
+                Presented in the graduate student breakout session on 10 July 2023: “The crisis of the growth model, social conflict,
+                and the Bank of Italy’s self-restrained independence (1969–1977).”
+              </p>
+            </article>
+
+            <article class="conference-item">
+              <div class="conference-top">
+                <h3>Economic Thought and the Making of the Euro</h3>
+                <div class="conference-year">2023</div>
+              </div>
+              <p class="conference-place">European University Institute · 27–28 April 2023</p>
+              <p class="conference-desc">
+                Conference on the development, circulation, and confrontation of economic ideas in the making of European monetary integration.
+              </p>
+            </article>
+
+            <article class="conference-item">
+              <div class="conference-top">
+                <h3>Central Banking and its Discontents: The Role of Monetary Policy in Contemporary Capitalism</h3>
+                <div class="conference-year">2022</div>
+              </div>
+              <p class="conference-place">Heinrich Böll Stiftung, Berlin · 11–13 July 2022</p>
+              <p class="conference-desc">
+                International conference on the role of monetary policy in contemporary capitalism.
+              </p>
+            </article>
+
+            <article class="conference-item">
+              <div class="conference-top">
+                <h3>Businesses, Banks and the Making of Europe’s Economic and Monetary Union (EMU), 1957–1992</h3>
+                <div class="conference-year">2022</div>
+              </div>
+              <p class="conference-place">University of Glasgow · 25–26 April 2022</p>
+              <p class="conference-desc">
+                Workshop on the contribution of businesses and banks to the debates surrounding Europe’s Economic and Monetary Union from the 1960s to the 1990s.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Publications -->
-    <section id="publications">
-      <h2 class="section-title">Publications</h2>
-      <p>
-        I publish on the history and political economy of central banking, credit policy, and economic governance,
-        and I also write shorter pieces for a wider policy audience. A selection of publications is listed below.
-      </p>
+    <section id="writing">
+      <div class="container section-layout">
+        <div class="section-label">Writing</div>
+        <div class="section-content">
+          <h2>Current work and publications</h2>
 
-      <h3>Academic publications</h3>
-      <ul class="pub-list">
-        <li class="pub-item">
-          <div class="pub-title">
-            How Credit Policy Ends: Central Bankers and the Rise and Fall of Credit Controls in Italy, 1973–1983
+          <div class="writing-box">
+            <h3>Current work</h3>
+            <p>
+              This section can be used for a book project, working papers, published articles, or shorter research notes.
+            </p>
+            <ul>
+              <li>Add your current project title here.</li>
+              <li>Add one or two selected papers or publications.</li>
+              <li>Add a CV link or a downloadable PDF.</li>
+            </ul>
           </div>
-          <div class="small muted">
-            A study of how Italian central bankers managed the transition away from postwar credit controls and what
-            this tells us about the changing role of central banks in credit policy.
-          </div>
-        </li>
-        <li class="pub-item">
-          <div class="pub-title">
-            A European Credit Council? Lessons from the History of Italian Central Banking after World War II
-          </div>
-          <div class="small muted">
-            This article revisits postwar Italian experience with credit policy to discuss proposals for democratising
-            the European Central Bank's role in credit allocation.
-          </div>
-        </li>
-      </ul>
-
-      <h3>Policy writing and commentary</h3>
-      <ul class="pub-list">
-        <li class="pub-item">
-          <div class="pub-title">
-            Il commercio internazionale tra protezionismo e liberalizzazione: la lezione di Guido Carli
-          </div>
-          <div class="small muted">
-            Policy brief, Luiss School of Government.
-          </div>
-        </li>
-        <li class="pub-item">
-          <div class="pub-title">
-            Trump vs. the Fed: una storia tra le storie
-          </div>
-          <div class="small muted">
-            Policy brief, Luiss School of Government.
-          </div>
-        </li>
-      </ul>
+        </div>
+      </div>
     </section>
 
-    <!-- CV -->
-    <section id="cv">
-      <h2 class="section-title">CV</h2>
-      <p>
-        A full CV is available as a PDF. Please see the link below.
-      </p>
-      <p>
-        <!-- Sostituisci # con il link reale al tuo PDF quando lo carichi -->
-        <a href="#" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a>
-      </p>
-    </section>
-
-    <!-- Contact -->
     <section id="contact">
-      <h2 class="section-title">Contact</h2>
-      <p>
-        For academic and professional enquiries, you can reach me at:
-      </p>
-      <ul class="contact-list">
-        <li>Email: <span class="small">[mattia.lupi@sciencespo.fr]</span></li>
-        <li>Google Scholar:
-          <a href="https://scholar.google.com/citations?hl=en&user=uKMc2agAAAAJ"
-             target="_blank" rel="noopener noreferrer">
-            Google Scholar profile
-          </a>
-        </li>
-        <li>LinkedIn:
-          <!-- Sostituisci # con il link reale -->
-          <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </li>
-      </ul>
+      <div class="container section-layout">
+        <div class="section-label">Contact</div>
+        <div class="section-content">
+          <h2>Contact</h2>
+
+          <div class="grid-2">
+            <article class="card">
+              <h3>Email</h3>
+              <p>Replace this line with your academic email address.</p>
+            </article>
+
+            <article class="card">
+              <h3>Profiles and CV</h3>
+              <p>Add links to your CV, institutional page, Google Scholar, SSRN, or LinkedIn.</p>
+            </article>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer>
-    &copy; <!--YEAR--> Mattia Lupi. All rights reserved.
+  <footer class="footer">
+    <div class="container">
+      © 2026 Mattia Lupi. Built with GitHub Pages.
+    </div>
   </footer>
 </body>
 </html>
