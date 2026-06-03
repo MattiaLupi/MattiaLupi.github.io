@@ -4,401 +4,322 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mattia Lupi</title>
-  <meta name="description" content="Mattia Lupi — Researcher in Political Science and Economic History." />
+  <meta name="description" content="Mattia Lupi — Researcher in Political Science and Economic History. Postdoctoral Research Fellow, University of Bologna." />
+  <meta property="og:title" content="Mattia Lupi" />
+  <meta property="og:description" content="Researcher in Political Science and Economic History. Postdoctoral Research Fellow, University of Bologna." />
 
-  <link rel="preconnect" href://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    /* ─── TOKENS ─────────────────────────────────────────── */
     :root {
-      --bg: #f6f3ee;
-      --surface: #fbfaf7;
-      --surface-2: #f0ece6;
-      --text: #1f1d1a;
-      --muted: #6c685f;
-      --line: #d8d1c8;
-      --accent: #0f5c63;
-      --accent-dark: #0a4449;
-      --white: #ffffff;
-      --shadow: 0 12px 30px rgba(26, 20, 13, 0.08);
-      --radius: 18px;
-      --radius-lg: 28px;
-      --max: 1120px;
+      --bg:              #f6f3ee;
+      --surface:         #fbfaf7;
+      --surface-2:       #f0ece6;
+      --surface-3:       #e8e4de;
+      --text:            #1f1d1a;
+      --muted:           #6c685f;
+      --faint:           #b0aca4;
+      --line:            #d8d1c8;
+      --accent:          #0f5c63;
+      --accent-dark:     #0a4449;
+      --accent-hi:       #d0e9eb;
+      --white:           #ffffff;
+      --shadow-sm:       0 1px 3px rgba(26,20,13,.06);
+      --shadow-md:       0 6px 20px rgba(26,20,13,.08);
+      --shadow-lg:       0 16px 40px rgba(26,20,13,.1);
+      --r-sm:  0.375rem;
+      --r-md:  0.625rem;
+      --r-lg:  1rem;
+      --r-xl:  1.5rem;
+      --r-2xl: 1.875rem;
+      --max:   1120px;
+
+      /* type scale */
+      --t-xs:   clamp(.75rem,  .7rem  + .25vw, .875rem);
+      --t-sm:   clamp(.875rem, .8rem  + .35vw, 1rem);
+      --t-base: clamp(1rem,    .95rem + .25vw, 1.125rem);
+      --t-lg:   clamp(1.125rem,1rem   + .75vw, 1.5rem);
+      --t-xl:   clamp(1.5rem,  1.2rem + 1.25vw,2.25rem);
+      --t-2xl:  clamp(2rem,    1.2rem + 2.5vw, 3.5rem);
+      --t-hero: clamp(2.8rem,  1rem   + 5vw,   5rem);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    /* ─── RESET ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', sans-serif; font-size: var(--t-base); line-height: 1.65; background: var(--bg); color: var(--text); }
+    img  { display: block; max-width: 100%; height: auto; }
+    a    { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h1,h2,h3,h4 { text-wrap: balance; line-height: 1.1; }
+    p, li { text-wrap: pretty; max-width: 72ch; }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .container {
-      width: min(var(--max), calc(100% - 2rem));
-      margin: 0 auto;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(10px);
-      background: rgba(246, 243, 238, 0.9);
-      border-bottom: 1px solid rgba(216, 209, 200, 0.8);
-    }
-
-    .nav {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .brand-mark {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
+    /* ─── LAYOUT HELPERS ─────────────────────────────────── */
+    .container { width: min(var(--max), calc(100% - 2rem)); margin: 0 auto; }
+    .section-layout {
       display: grid;
-      place-items: center;
-      background: var(--text);
-      color: var(--bg);
-      font-size: 0.96rem;
+      grid-template-columns: 200px 1fr;
+      gap: 2rem;
+      align-items: start;
+      padding: 3rem 0;
+      border-top: 1px solid var(--line);
+    }
+    .section-label {
+      padding-top: .3rem;
+      color: var(--muted);
+      font-size: var(--t-xs);
+      text-transform: uppercase;
+      letter-spacing: .1em;
       font-weight: 700;
     }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-size: 0.94rem;
+    .section-content h2 {
+      font-family: 'Instrument Serif', serif;
+      font-size: var(--t-2xl);
+      font-weight: 400;
+      letter-spacing: -.02em;
+      margin-bottom: 1rem;
     }
+    .section-content p { color: #302c27; margin-bottom: 1rem; max-width: 68ch; }
 
-    .nav-links a {
-      color: var(--muted);
+    /* ─── HEADER / NAV ───────────────────────────────────── */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      backdrop-filter: blur(12px);
+      background: rgba(246,243,238,.92);
+      border-bottom: 1px solid rgba(216,209,200,.7);
     }
-
-    .hero {
-      padding: 5rem 0 3rem;
+    .nav {
+      min-height: 68px;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
     }
+    .brand {
+      display: flex; align-items: center; gap: .8rem;
+      color: var(--text); font-weight: 600; font-size: var(--t-sm);
+    }
+    .brand-mark {
+      width: 36px; height: 36px; border-radius: var(--r-md);
+      display: grid; place-items: center;
+      background: var(--text); color: var(--bg);
+      font-size: .9rem; font-weight: 700;
+    }
+    .nav-links { display: flex; flex-wrap: wrap; gap: .9rem; }
+    .nav-links a { color: var(--muted); font-size: var(--t-sm); font-weight: 500; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
 
+    /* ─── HERO ───────────────────────────────────────────── */
+    .hero { padding: 5rem 0 3.5rem; }
     .hero-grid {
       display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 3rem;
+      grid-template-columns: 300px 1fr;
+      gap: 3.5rem;
       align-items: center;
     }
-
     .hero-photo-wrap {
       background: var(--surface);
       border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 1rem;
-      box-shadow: var(--shadow);
+      border-radius: var(--r-2xl);
+      padding: .875rem;
+      box-shadow: var(--shadow-lg);
     }
-
     .hero-photo {
       width: 100%;
-      aspect-ratio: 4 / 5;
+      aspect-ratio: 4/5;
       object-fit: cover;
-      border-radius: 22px;
+      border-radius: calc(var(--r-2xl) - .875rem);
       background: var(--surface-2);
     }
-
-    h1 {
-      margin: 0 0 0.8rem;
+    .hero-content h1 {
       font-family: 'Instrument Serif', serif;
-      font-size: clamp(2.8rem, 5vw, 5rem);
-      line-height: 0.96;
-      letter-spacing: -0.03em;
+      font-size: var(--t-hero);
       font-weight: 400;
+      letter-spacing: -.035em;
+      margin-bottom: .75rem;
     }
-
-    .subtitle {
-      margin: 0 0 1.2rem;
-      font-size: 1.15rem;
+    .hero-content .role {
+      font-size: var(--t-base);
       color: var(--muted);
       font-weight: 500;
+      margin-bottom: 1.5rem;
     }
-
-    .lead {
-      margin: 0 0 1rem;
-      font-size: 1.05rem;
-      max-width: 64ch;
+    .hero-content .lead {
+      font-size: var(--t-base);
       color: #2e2a25;
+      max-width: 58ch;
+      margin-bottom: 1rem;
     }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      margin-top: 1.8rem;
-    }
-
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.75rem; }
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.9rem 1.15rem;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      color: var(--text);
-      background: transparent;
-      font-weight: 600;
-      transition: 0.2s ease;
-      text-decoration: none;
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .75rem 1.15rem; border-radius: 999px;
+      border: 1px solid var(--line); color: var(--text); background: transparent;
+      font-size: var(--t-sm); font-weight: 600;
+      transition: .18s ease;
     }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      text-decoration: none;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: var(--white);
-      border-color: var(--accent);
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-dark);
-      border-color: var(--accent-dark);
-    }
-
-    .meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-top: 1.5rem;
-    }
-
+    .btn:hover { background: var(--surface-2); transform: translateY(-1px); text-decoration: none; }
+    .btn-primary { background: var(--accent); color: var(--white); border-color: var(--accent); }
+    .btn-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+    .meta-row { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.5rem; }
     .meta-pill {
-      padding: 0.55rem 0.8rem;
-      border-radius: 999px;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.92rem;
+      padding: .4rem .75rem; border-radius: 999px;
+      background: var(--surface); border: 1px solid var(--line);
+      color: var(--muted); font-size: var(--t-xs);
     }
 
-    section {
-      padding: 2rem 0 1rem;
-    }
-
-    .section-layout {
-      display: grid;
-      grid-template-columns: 210px 1fr;
-      gap: 2rem;
-      align-items: start;
-      padding: 2.5rem 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .section-label {
-      padding-top: 0.35rem;
-      color: var(--muted);
-      font-size: 0.88rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 700;
-    }
-
-    .section-content h2 {
-      margin: 0 0 1rem;
-      font-family: 'Instrument Serif', serif;
-      font-size: clamp(2rem, 3vw, 3rem);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      font-weight: 400;
-    }
-
-    .section-content p {
-      margin: 0 0 1rem;
-      max-width: 68ch;
-      color: #302c27;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1.3rem;
-    }
-
+    /* ─── RESEARCH CARDS ─────────────────────────────────── */
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.25rem; }
     .card {
       background: var(--surface);
       border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 1.2rem;
-      box-shadow: var(--shadow);
+      border-radius: var(--r-xl);
+      padding: 1.15rem;
+      box-shadow: var(--shadow-sm);
     }
+    .card h3 { font-size: var(--t-sm); font-weight: 600; margin-bottom: .4rem; }
+    .card p { margin: 0; color: var(--muted); font-size: var(--t-sm); }
 
-    .card h3 {
-      margin: 0 0 0.5rem;
-      font-size: 1rem;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    .conference-list {
-      display: grid;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .conference-item {
+    /* ─── CONFERENCE LIST ────────────────────────────────── */
+    .conf-list { display: grid; gap: .875rem; margin-top: 1.25rem; }
+    .conf-item {
       background: var(--surface);
       border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 1.15rem 1.15rem 1rem;
-      box-shadow: var(--shadow);
+      border-radius: var(--r-xl);
+      padding: 1.1rem 1.2rem;
+      box-shadow: var(--shadow-sm);
     }
+    .conf-top { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: .75rem; margin-bottom: .3rem; }
+    .conf-top h3 { font-size: var(--t-sm); font-weight: 600; }
+    .conf-year { color: var(--muted); font-size: var(--t-xs); font-weight: 700; white-space: nowrap; }
+    .conf-place { color: var(--accent); font-size: var(--t-xs); font-weight: 600; margin-bottom: .3rem; }
+    .conf-desc { color: var(--muted); font-size: var(--t-sm); margin: 0; }
 
-    .conference-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 0.45rem;
-    }
+    /* ─── PUBLICATIONS ───────────────────────────────────── */
+    .pub-list { display: grid; gap: 1.25rem; margin-top: 1.25rem; }
 
-    .conference-top h3 {
-      margin: 0;
-      font-size: 1.04rem;
-      line-height: 1.3;
-    }
-
-    .conference-year {
-      color: var(--muted);
-      font-size: 0.92rem;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    .conference-place {
-      margin: 0 0 0.45rem;
-      color: var(--accent);
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    .conference-desc {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .writing-box {
-      margin-top: 1rem;
-      padding: 1.4rem;
-      background: linear-gradient(180deg, var(--surface), #f7f3ed);
+    .pub-card {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 1.5rem;
+      align-items: start;
+      background: var(--surface);
       border: 1px solid var(--line);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
+      border-radius: var(--r-2xl);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      transition: box-shadow .2s ease, transform .2s ease;
     }
+    .pub-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
 
-    .writing-box h3 {
-      margin: 0 0 0.6rem;
-      font-size: 1.04rem;
+    .pub-type {
+      display: inline-block;
+      padding: .25rem .6rem;
+      border-radius: 999px;
+      font-size: var(--t-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin-bottom: .6rem;
     }
+    .pub-type.article  { background: var(--accent-hi); color: var(--accent-dark); }
+    .pub-type.policy   { background: #fde8c8; color: #7a4a10; }
+    .pub-type.wip      { background: #e8e4f5; color: #4a3870; }
 
-    .writing-box p,
-    .writing-box li {
+    .pub-body h3 {
+      font-family: 'Instrument Serif', serif;
+      font-size: var(--t-lg);
+      font-weight: 400;
+      letter-spacing: -.01em;
+      margin-bottom: .65rem;
+      line-height: 1.2;
+    }
+    .pub-body h3 a { color: var(--text); }
+    .pub-body h3 a:hover { color: var(--accent); text-decoration: none; }
+
+    .pub-abstract {
+      font-size: var(--t-sm);
+      color: #3a3630;
+      margin-bottom: .75rem;
+      max-width: 66ch;
+    }
+    .pub-meta {
+      display: flex; flex-wrap: wrap; align-items: center; gap: .5rem;
+      font-size: var(--t-xs); color: var(--muted); font-weight: 500;
+    }
+    .pub-meta .sep { color: var(--faint); }
+    .pub-link {
+      display: inline-flex; align-items: center; gap: .3rem;
+      font-size: var(--t-xs); font-weight: 600;
+      color: var(--accent); margin-top: .75rem;
+    }
+    .pub-link:hover { color: var(--accent-dark); }
+    .pub-link svg { flex-shrink: 0; }
+
+    .pub-img-wrap {
+      border-radius: calc(var(--r-2xl) - 1.5rem);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+    }
+    .pub-img-wrap img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+    }
+    .pub-img-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      background: var(--surface-3);
+      color: var(--faint);
+      font-size: var(--t-xs);
+      font-weight: 600;
+      text-align: center;
+      padding: 1rem;
+    }
+    .pub-img-placeholder .pub-journal-abbr {
+      font-family: 'Instrument Serif', serif;
+      font-size: var(--t-lg);
       color: var(--muted);
+      line-height: 1.1;
     }
 
-    .writing-box ul {
-      margin: 0.8rem 0 0;
-      padding-left: 1.2rem;
+    /* ─── CONTACT ────────────────────────────────────────── */
+    .contact-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.25rem; }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    .footer { padding: 3rem 0 4rem; color: var(--muted); font-size: var(--t-xs); border-top: 1px solid var(--line); margin-top: 2rem; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .hero-grid, .section-layout { grid-template-columns: 1fr; }
+      .hero { padding-top: 3rem; }
+      .hero-photo-wrap { max-width: 340px; }
+      .pub-card { grid-template-columns: 1fr; }
+      .pub-img-wrap, .pub-img-placeholder { max-width: 220px; }
     }
-
-    .footer {
-      padding: 3rem 0 4rem;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    @media (max-width: 920px) {
-      .hero-grid,
-      .section-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 3rem;
-      }
-
-      .hero-photo-wrap {
-        max-width: 360px;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem 0;
-      }
-
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
-
-      .container {
-        width: min(var(--max), calc(100% - 1.25rem));
-      }
-
-      h1 {
-        font-size: clamp(2.4rem, 11vw, 4rem);
-      }
+    @media (max-width: 680px) {
+      .grid-2, .contact-grid { grid-template-columns: 1fr; }
+      .nav { flex-direction: column; align-items: flex-start; padding: .75rem 0; min-height: auto; }
+      .container { width: calc(100% - 1.5rem); }
     }
   </style>
 </head>
 <body>
+
+  <!-- NAV -->
   <header class="site-header">
     <div class="container nav">
       <div class="brand">
         <div class="brand-mark">ML</div>
         <span>Mattia Lupi</span>
       </div>
-
       <nav class="nav-links" aria-label="Primary navigation">
         <a href="#about">About</a>
         <a href="#research">Research</a>
@@ -410,252 +331,341 @@
   </header>
 
   <main>
+
+    <!-- HERO -->
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-photo-wrap">
-          <img src="profile.jpg" alt="Portrait of Mattia Lupi" class="hero-photo">
+          <img src="profile.jpg"
+               alt="Portrait of Mattia Lupi"
+               class="hero-photo"
+               width="300" height="375"
+               loading="eager">
         </div>
-
-        <div>
+        <div class="hero-content">
           <h1>Mattia Lupi</h1>
-          <p class="subtitle">Researcher in Political Science and Economic History</p>
-
-          <p class="lead">
-            I work at the intersection of political science, economic history, and the history of central banking.
-          </p>
-
-          <p class="lead">
-            My research focuses on the role of central banks as political actors, the evolution of monetary regimes,
-            international economic institutions, the making of European monetary integration, and the changing impact
-            of economic ideas and expertise.
-          </p>
-
+          <p class="role">Postdoctoral Research Fellow · University of Bologna</p>
+          <p class="lead">I work at the intersection of political science, economic history, and the history of central banking.</p>
+          <p class="lead">My research focuses on the role of central banks as political actors, the evolution of monetary regimes, international economic institutions, the making of European monetary integration, and the changing impact of economic ideas and expertise.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#research">Research interests</a>
-            <a class="btn" href="#conferences">Selected conferences</a>
+            <a class="btn" href="#publications">Publications</a>
             <a class="btn" href="#contact">Contact</a>
           </div>
-
           <div class="meta-row">
-            <div class="meta-pill">Political Science</div>
-            <div class="meta-pill">Economic History</div>
-            <div class="meta-pill">Central Banking</div>
-            <div class="meta-pill">Political Economy</div>
+            <span class="meta-pill">Political Science</span>
+            <span class="meta-pill">Economic History</span>
+            <span class="meta-pill">Central Banking</span>
+            <span class="meta-pill">Political Economy</span>
+            <span class="meta-pill">European Monetary Integration</span>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ABOUT -->
     <section id="about">
       <div class="container section-layout">
         <div class="section-label">About</div>
         <div class="section-content">
           <h2>Research on monetary institutions, political conflict, and economic governance.</h2>
-          <p>
-            This website gathers my research profile, selected conference participation, and current work in political science,
-            economic history, and the history of central banking.
-          </p>
-          <p>
-            I am particularly interested in how institutions acquire authority, how economic ideas move across policy arenas,
-            and how struggles over inflation, growth, and financial governance reshape the state.
-          </p>
+          <p>I am a Postdoctoral Research Fellow in the Department of Political and Social Sciences at the University of Bologna. I hold a PhD in Political Science from Sciences Po Paris, where my thesis examined the process of independence of the Bank of Italy at the intersection of economic history and political science, drawing on the Banca d'Italia Historical Archive.</p>
+          <p>I am particularly interested in how central banks acquire authority, how economic ideas move across policy arenas, and how struggles over inflation, growth, and financial governance reshape state institutions. I also write policy-oriented work on monetary policy, central bank independence, and European economic governance.</p>
         </div>
       </div>
     </section>
 
+    <!-- RESEARCH -->
     <section id="research">
       <div class="container section-layout">
         <div class="section-label">Research</div>
         <div class="section-content">
           <h2>Research interests</h2>
-
           <div class="grid-2">
             <article class="card">
               <h3>History of central banking</h3>
-              <p>The political, institutional, and intellectual history of central banks in the twentieth century.</p>
+              <p>The political, institutional, and intellectual history of central banks in the twentieth century, with a focus on the Bank of Italy and the Federal Reserve.</p>
             </article>
-
             <article class="card">
               <h3>Political economy of monetary regimes</h3>
-              <p>Inflation, stabilization, exchange-rate arrangements, and the politics of monetary authority.</p>
+              <p>Inflation, stabilisation, exchange-rate arrangements, and the politics of monetary authority in advanced economies.</p>
             </article>
-
             <article class="card">
-              <h3>Italy and postwar capitalism</h3>
-              <p>State capacity, social conflict, and institutional change in the Italian political economy after 1945.</p>
+              <h3>European monetary integration</h3>
+              <p>The making of EMU, the role of economic ideas and expertise in European governance, and the contribution of domestic elites to monetary convergence.</p>
             </article>
-
             <article class="card">
-              <h3>Europe and international institutions</h3>
-              <p>The making of EMU, European governance, and the role of international economic organizations.</p>
+              <h3>Central bank activism and independence</h3>
+              <p>Evolving mandates, developmental central banking, and the comparative politics of central bank autonomy across historical and contemporary contexts.</p>
             </article>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- CONFERENCES -->
     <section id="conferences">
       <div class="container section-layout">
         <div class="section-label">Conferences</div>
         <div class="section-content">
           <h2>Selected conferences</h2>
-          <p>
-            A selection of workshops, summer schools, and conferences where I have presented research or taken part in broader discussions
-            on central banking, political economy, and European monetary integration.
-          </p>
+          <div class="conf-list">
 
-          <div class="conference-list">
-            <article class="conference-item">
-              <div class="conference-top">
+            <article class="conf-item">
+              <div class="conf-top">
                 <h3>51st Economic and Business History Society Conference</h3>
-                <div class="conference-year">2026</div>
+                <span class="conf-year">2026</span>
               </div>
-              <p class="conference-place">Tysons Corner, Virginia · 28–30 May 2026</p>
-              <p class="conference-desc">
-                Annual conference of the Economic and Business History Society on “Turning Points in Economic and Business History.”
-              </p>
+              <p class="conf-place">Tysons Corner, Virginia · 28–30 May 2026</p>
+              <p class="conf-desc">"Turning Points in Economic and Business History." Annual conference of the Economic and Business History Society.</p>
             </article>
 
-            <article class="conference-item">
-              <div class="conference-top">
+            <article class="conf-item">
+              <div class="conf-top">
                 <h3>SISEC Conference</h3>
-                <div class="conference-year">2025</div>
+                <span class="conf-year">2025</span>
               </div>
-              <p class="conference-place">University of Pavia · 29 January–1 February 2025</p>
-              <p class="conference-desc">
-                IX SISEC conference hosted by the Department of Political and Social Sciences, on “Visible and invisible in changing capitalism.”
-              </p>
+              <p class="conf-place">University of Pavia · 29 January–1 February 2025</p>
+              <p class="conf-desc">IX SISEC conference on "Visible and invisible in changing capitalism."</p>
             </article>
 
-            <article class="conference-item">
-              <div class="conference-top">
+            <article class="conf-item">
+              <div class="conf-top">
                 <h3>EISA Pan-European Conference on International Relations</h3>
-                <div class="conference-year">2025</div>
+                <span class="conf-year">2025</span>
               </div>
-              <p class="conference-place">University of Bologna · 25–29 August 2025</p>
-              <p class="conference-desc">
-                18th Pan-European Conference on International Relations organized within the EISA network.
-              </p>
+              <p class="conf-place">University of Bologna · 25–29 August 2025</p>
+              <p class="conf-desc">18th Pan-European Conference on International Relations.</p>
             </article>
 
-            <article class="conference-item">
-              <div class="conference-top">
-                <h3>Developmental Central Banking</h3>
-                <div class="conference-year">2024</div>
+            <article class="conf-item">
+              <div class="conf-top">
+                <h3>Developmental Central Banking Workshop</h3>
+                <span class="conf-year">2024</span>
               </div>
-              <p class="conference-place">University of Évora / YSI · 5 December 2024</p>
-              <p class="conference-desc">
-                Workshop on central banks and development from the perspective of the history of economics.
-              </p>
+              <p class="conf-place">University of Évora / YSI · 5 December 2024</p>
+              <p class="conf-desc">Workshop on central banks and development from the perspective of the history of economics.</p>
             </article>
 
-            <article class="conference-item">
-              <div class="conference-top">
+            <article class="conf-item">
+              <div class="conf-top">
                 <h3>Political Economy of Finance Summer School</h3>
-                <div class="conference-year">2024</div>
+                <span class="conf-year">2024</span>
               </div>
-              <p class="conference-place">Brown University · 17–21 June 2024</p>
-              <p class="conference-desc">
-                Summer school for PhD and early-career scholars working on finance, political economy, history, and related fields.
-              </p>
+              <p class="conf-place">Brown University · 17–21 June 2024</p>
+              <p class="conf-desc">Summer school for PhD and early-career scholars working on finance, political economy, and history.</p>
             </article>
 
-            <article class="conference-item">
-              <div class="conference-top">
+            <article class="conf-item">
+              <div class="conf-top">
                 <h3>Economy &amp; Society 2023 Summer Conference</h3>
-                <div class="conference-year">2023</div>
+                <span class="conf-year">2023</span>
               </div>
-              <p class="conference-place">Northwestern University · 8–11 July 2023</p>
-              <p class="conference-desc">
-                Presented in the graduate student breakout session on 10 July 2023: “The crisis of the growth model, social conflict,
-                and the Bank of Italy’s self-restrained independence (1969–1977).”
-              </p>
+              <p class="conf-place">Northwestern University · 8–11 July 2023</p>
+              <p class="conf-desc">Presented: "The crisis of the growth model, social conflict, and the Bank of Italy's self-restrained independence (1969–1977)."</p>
             </article>
 
-            <article class="conference-item">
-              <div class="conference-top">
+            <article class="conf-item">
+              <div class="conf-top">
                 <h3>Economic Thought and the Making of the Euro</h3>
-                <div class="conference-year">2023</div>
+                <span class="conf-year">2023</span>
               </div>
-              <p class="conference-place">European University Institute · 27–28 April 2023</p>
-              <p class="conference-desc">
-                Conference on the development, circulation, and confrontation of economic ideas in the making of European monetary integration.
-              </p>
+              <p class="conf-place">European University Institute · 27–28 April 2023</p>
+              <p class="conf-desc">Conference on the development, circulation, and confrontation of economic ideas in the making of European monetary integration.</p>
             </article>
 
-            <article class="conference-item">
-              <div class="conference-top">
-                <h3>Central Banking and its Discontents: The Role of Monetary Policy in Contemporary Capitalism</h3>
-                <div class="conference-year">2022</div>
+            <article class="conf-item">
+              <div class="conf-top">
+                <h3>Central Banking and its Discontents</h3>
+                <span class="conf-year">2022</span>
               </div>
-              <p class="conference-place">Heinrich Böll Stiftung, Berlin · 11–13 July 2022</p>
-              <p class="conference-desc">
-                International conference on the role of monetary policy in contemporary capitalism.
-              </p>
+              <p class="conf-place">Heinrich Böll Stiftung, Berlin · 11–13 July 2022</p>
+              <p class="conf-desc">International conference on the role of monetary policy in contemporary capitalism.</p>
             </article>
 
-            <article class="conference-item">
-              <div class="conference-top">
-                <h3>Businesses, Banks and the Making of Europe’s Economic and Monetary Union (EMU), 1957–1992</h3>
-                <div class="conference-year">2022</div>
+            <article class="conf-item">
+              <div class="conf-top">
+                <h3>Businesses, Banks and the Making of Europe's EMU, 1957–1992</h3>
+                <span class="conf-year">2022</span>
               </div>
-              <p class="conference-place">University of Glasgow · 25–26 April 2022</p>
-              <p class="conference-desc">
-                Workshop on the contribution of businesses and banks to the debates surrounding Europe’s Economic and Monetary Union from the 1960s to the 1990s.
-              </p>
+              <p class="conf-place">University of Glasgow · 25–26 April 2022</p>
+              <p class="conf-desc">Workshop on the contribution of businesses and banks to the debates surrounding Europe's Economic and Monetary Union from the 1960s to the 1990s.</p>
             </article>
+
           </div>
         </div>
       </div>
     </section>
 
+    <!-- PUBLICATIONS -->
     <section id="publications">
       <div class="container section-layout">
         <div class="section-label">Publications</div>
         <div class="section-content">
-          <h2>Publications</h2>
+          <h2>Publications &amp; working papers</h2>
 
-          <div class="writing-box">
-            <h3>Selected work</h3>
-            <p>
-              This section can be used for published articles, working papers, book chapters, research notes, or a book project.
-            </p>
-            <ul>
-              <li>Add your first publication here.</li>
-              <li>Add a working paper or article in progress.</li>
-              <li>Add a link to your CV, Google Scholar, or SSRN profile.</li>
-            </ul>
+          <div class="pub-list">
+
+            <!-- 1 ─ How Credit Policy Ends -->
+            <article class="pub-card">
+              <div class="pub-body">
+                <span class="pub-type article">Journal article</span>
+                <h3>
+                  <a href="https://www.cambridge.org/core/journals/contemporary-european-history/article/how-credit-policy-ends-central-bankers-and-the-rise-and-fall-of-credit-controls-in-italy-19731983/03D8B32DB8FB898974BA22990BBCF134" target="_blank" rel="noopener noreferrer">
+                    How Credit Policy Ends: Central Bankers and the Rise and Fall of Credit Controls in Italy, 1973–1983
+                  </a>
+                </h3>
+                <p class="pub-abstract">
+                  This article examines the decline of credit controls in Italy and its relationship to the making of European monetary integration. Drawing on archival sources from the Bank of Italy and the Historical Archive of the EU, it argues that the delegitimisation of credit controls was driven by domestic "policy learning" among reform-oriented economists — figures such as Tommaso Padoa-Schioppa, Mario Monti, and Paolo Baffi — rather than by external pressures from European harmonisation. The central bank acted as an "epistemic hub" that anticipated and then fed into broader European convergence processes, revealing the active agency of domestic elites in shaping the path of Italian monetary integration.
+                </p>
+                <div class="pub-meta">
+                  <span><em>Contemporary European History</em></span>
+                  <span class="sep">·</span>
+                  <span>Cambridge University Press</span>
+                  <span class="sep">·</span>
+                  <span>2025</span>
+                </div>
+                <a class="pub-link" href="https://www.cambridge.org/core/journals/contemporary-european-history/article/how-credit-policy-ends-central-bankers-and-the-rise-and-fall-of-credit-controls-in-italy-19731983/03D8B32DB8FB898974BA22990BBCF134" target="_blank" rel="noopener noreferrer">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Read at Cambridge University Press
+                </a>
+              </div>
+              <div class="pub-img-wrap">
+                <div class="pub-img-placeholder">
+                  <span class="pub-journal-abbr">Contemporary<br>European<br>History</span>
+                  <span>Cambridge UP · 2025</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2 ─ A European Credit Council -->
+            <article class="pub-card">
+              <div class="pub-body">
+                <span class="pub-type article">Journal article</span>
+                <h3>
+                  <a href="https://www.degruyter.com/document/doi/10.1515/ael-2022-0071/html?lang=en" target="_blank" rel="noopener noreferrer">
+                    A European Credit Council? Lessons from the History of Italian Central Banking after World War II
+                  </a>
+                </h3>
+                <p class="pub-abstract">
+                  By formulating a proposal for the "democratisation" of the ECB through the establishment of a European Credit Council, Eric Monnet makes a fundamental contribution to the contemporary debate on central banking. This article argues that the intellectual optimism with which post-war institutional set-ups are often viewed can be misleading. Focusing on the Italian case, it shows how the attempt to democratically control the central bank was neither linear nor necessarily successful: the establishment of a credit council did not prevent the Bank of Italy from enjoying a high degree of de facto independence, while the broader system of credit policy often degenerated into irrational and opaque practices.
+                </p>
+                <div class="pub-meta">
+                  <span><em>Accounting, Economics, and Law: A Convivium</em></span>
+                  <span class="sep">·</span>
+                  <span>De Gruyter</span>
+                  <span class="sep">·</span>
+                  <span>Vol. 14, no. 4, 2024</span>
+                </div>
+                <a class="pub-link" href="https://www.degruyter.com/document/doi/10.1515/ael-2022-0071/html?lang=en" target="_blank" rel="noopener noreferrer">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Read at De Gruyter
+                </a>
+              </div>
+              <div class="pub-img-wrap">
+                <div class="pub-img-placeholder">
+                  <span class="pub-journal-abbr">AEL:<br>A Convivium</span>
+                  <span>De Gruyter · 2024</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3 ─ Policy Brief Trump vs Fed -->
+            <article class="pub-card">
+              <div class="pub-body">
+                <span class="pub-type policy">Policy brief</span>
+                <h3>
+                  <a href="https://sog.luiss.it/sites/sog.luiss.it/files/Luiss%20SOG_%20MATTIA%20LUPIv2.pdf" target="_blank" rel="noopener noreferrer">
+                    Trump vs. the Fed: una storia tra le storie
+                  </a>
+                </h3>
+                <p class="pub-abstract">
+                  The re-election of Donald Trump has reignited an old and complex debate: the relationship between the President of the United States and the Federal Reserve. Analysing episodes from Nixon-Burns to Volcker, Reagan, and Greenspan, this policy brief argues that the independence of the Federal Reserve is more of a myth than a reality and that understanding the Fed requires attention to politics, individual personalities, and the institutional dynamics of the US system — not just the legal framework.
+                </p>
+                <div class="pub-meta">
+                  <span>Policy Brief 01/2025</span>
+                  <span class="sep">·</span>
+                  <span>Luiss School of Government</span>
+                  <span class="sep">·</span>
+                  <span>2025</span>
+                </div>
+                <a class="pub-link" href="https://sog.luiss.it/sites/sog.luiss.it/files/Luiss%20SOG_%20MATTIA%20LUPIv2.pdf" target="_blank" rel="noopener noreferrer">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Download PDF
+                </a>
+              </div>
+              <div class="pub-img-wrap">
+                <div class="pub-img-placeholder">
+                  <span class="pub-journal-abbr">Luiss<br>School of<br>Government</span>
+                  <span>Policy Brief · 2025</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 4 ─ Policy Brief Guido Carli -->
+            <article class="pub-card">
+              <div class="pub-body">
+                <span class="pub-type policy">Policy brief</span>
+                <h3>
+                  <a href="https://sog.luiss.it/sites/sog.luiss.it/files/20250509_Policy%20brief%20commercio%20internazionale_v3.pdf" target="_blank" rel="noopener noreferrer">
+                    Il commercio internazionale tra protezionismo e liberalizzazione: la lezione di Guido Carli
+                  </a>
+                </h3>
+                <p class="pub-abstract">
+                  In the wake of Trump's "Liberation Day" tariff announcements and the ensuing financial turmoil, this policy brief draws on the career of Guido Carli — Governor of the Bank of Italy (1960–1975) and a founding figure of the postwar international monetary order — to reflect on the tensions between protectionism and liberalisation. Carli's lesson, grounded in cooperation, Europeanism, and Atlanticism, offers a historically informed compass for navigating a new era of economic nationalism and strategic trade conflict.
+                </p>
+                <div class="pub-meta">
+                  <span>Policy Brief 5/2025</span>
+                  <span class="sep">·</span>
+                  <span>Luiss School of Government</span>
+                  <span class="sep">·</span>
+                  <span>May 2025</span>
+                </div>
+                <a class="pub-link" href="https://sog.luiss.it/sites/sog.luiss.it/files/20250509_Policy%20brief%20commercio%20internazionale_v3.pdf" target="_blank" rel="noopener noreferrer">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  Download PDF
+                </a>
+              </div>
+              <div class="pub-img-wrap">
+                <div class="pub-img-placeholder">
+                  <span class="pub-journal-abbr">Luiss<br>School of<br>Government</span>
+                  <span>Policy Brief · 2025</span>
+                </div>
+              </div>
+            </article>
+
           </div>
         </div>
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact">
       <div class="container section-layout">
         <div class="section-label">Contact</div>
         <div class="section-content">
           <h2>Contact</h2>
-
-          <div class="grid-2">
+          <div class="contact-grid">
             <article class="card">
               <h3>Email</h3>
-              <p>Replace this line with your academic email address.</p>
+              <p>Add your institutional email address here.</p>
             </article>
-
             <article class="card">
-              <h3>Profiles and CV</h3>
-              <p>Add links to your CV, institutional page, Google Scholar, SSRN, or LinkedIn.</p>
+              <h3>Profiles</h3>
+              <p>Add links to your Google Scholar, SSRN, institutional page, or LinkedIn.</p>
             </article>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="footer">
     <div class="container">
-      © 2026 Mattia Lupi. Built with GitHub Pages.
+      © 2026 Mattia Lupi · Built with GitHub Pages
     </div>
   </footer>
+
 </body>
 </html>
